@@ -25,7 +25,7 @@ export default function App() {
       >
         <SafeAreaView style={styles.rootScreen}>
           {userNumnber ? (
-            <GameScreen />
+            <GameScreen userNumber={userNumnber} />
           ) : (
             <StartGameScreen onPickNumber={pickedNumberHandler} />
           )}
