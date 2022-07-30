@@ -1,15 +1,33 @@
 import { LinearGradient } from "expo-linear-gradient";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageBackground, StyleSheet, SafeAreaView } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import { useFonts } from "expo-font";
+import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
+
 import StartGameScreen from "./screens/StartGameScreen";
 import GameScreen from "./screens/GameScreen";
 import GameOverScreen from "./screens/GameOverScreen";
 import Colors from "./constants/colors";
-import { StatusBar } from "expo-status-bar";
+
+preventAutoHideAsync();
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
   const [gameIsOver, setGameIsOver] = useState(true);
+
+  const [fontsLoaded] = useFonts({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+  });
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      hideAsync();
+    }
+  }, [fontsLoaded, hideAsync]);
+
+  if (!fontsLoaded) return null;
 
   function pickedNumberHandler(number) {
     setUserNumber(number);

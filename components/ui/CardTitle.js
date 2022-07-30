@@ -10,6 +10,7 @@ export default CardTitle;
 
 const styles = StyleSheet.create({
   cardTitle: {
+    fontFamily: "open-sans",
     color: Colors.accent500,
     fontSize: 16,
   },
