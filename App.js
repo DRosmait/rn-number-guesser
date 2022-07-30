@@ -35,8 +35,9 @@ export default function App() {
     setGameIsOver(false);
   }
 
-  function gameOverHandler() {
+  function gameOverHandler(guessNumber) {
     setGameIsOver(true);
+    setGuessNumber(guessNumber);
   }
 
   function startNewGameHandler() {
@@ -61,9 +62,6 @@ export default function App() {
       />
     );
   }
-
-  // TODO remove it
-  screen = <GameOverScreen userNumber={userNumber} />;
 
   return (
     <>
