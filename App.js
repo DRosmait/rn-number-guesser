@@ -14,6 +14,7 @@ preventAutoHideAsync();
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null);
+  const [guessNumber, setGuessNumber] = useState(1);
   const [gameIsOver, setGameIsOver] = useState(true);
 
   const [fontsLoaded] = useFonts({
@@ -38,6 +39,12 @@ export default function App() {
     setGameIsOver(true);
   }
 
+  function startNewGameHandler() {
+    setUserNumber(null);
+    setGuessNumber(1);
+    setGameIsOver(false);
+  }
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
 
   if (userNumber) {
@@ -46,7 +53,13 @@ export default function App() {
     );
   }
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen userNumber={userNumber} />;
+    screen = (
+      <GameOverScreen
+        userNumber={userNumber}
+        roundsNumber={guessNumber}
+        onStartNewGame={startNewGameHandler}
+      />
+    );
   }
 
   // TODO remove it
