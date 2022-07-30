@@ -49,6 +49,9 @@ export default function App() {
     screen = <GameOverScreen userNumber={userNumber} />;
   }
 
+  // TODO remove it
+  screen = <GameOverScreen userNumber={userNumber} />;
+
   return (
     <>
       <StatusBar style="inverted" />
