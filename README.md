@@ -1,10 +1,10 @@
-# Project Title
+# Number Guesser game
 
 Guess the number game
 
 ## Description
 
-Guess the number game written with React Native, Expo and Vanila JavaScript
+The game is written with React Native, Expo and Vanila JavaScript
 
 ## Getting Started
 
